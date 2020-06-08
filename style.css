@@ -1,0 +1,76 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #333;
+  text-align: center;
+}
+.container{
+  position: relative;
+  top: 2rem;
+  background-color: #f4f4f4;
+  width: 80%;
+  margin: auto;
+}
+.head{
+  padding-top: 2rem;
+  color: #333;
+  font-family: 'Cormorant Garamond', serif;
+  /* letter-spacing: 0.1rem; */
+}
+.input-group{
+  width: 80%;
+  margin: auto;
+  margin: 1rem;
+  padding: 0.4rem;
+  outline: #333;
+}
+.btn{
+  width: 80%;
+  margin: auto;
+  margin: 1rem;
+  padding: 0.6rem;
+  background-color: #333;
+  color: #f4f4f4;
+  border: none;
+  border-radius: 0.4rem;
+}
+.btn:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+.course-card{
+  width: 80%;
+  margin: auto;
+}
+.course-card ul{
+  list-style: none;
+  padding-bottom: 1rem;
+}
+.course-card ul li{
+  background-color: #ccc;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,th, td {
+  border: 1px solid black;
+  padding: 0.4rem;
+
+}
+.input-table{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border:none;
+  background-color: #ccc;
+  padding: 0.2rem;
+  color: #333;
+  line-height: 0.2rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
