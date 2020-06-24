@@ -115,3 +115,42 @@ table,th, td {
   border: none;
   color: #333;
 }
+.gpaBox{
+  width: 80%;
+  margin: auto;
+  background-color: #ccc;
+  border-radius: 20%;
+  display: none;
+}
+.gpa{
+  display: flex;
+  padding: 0.7rem 1rem;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+h3{
+  font-family: 'Cormorant Garamond', serif;
+}
+/* #gpa{
+  margin-right: 2rem;
+} */
+.clearTable{
+  display: none;
+}
+.loading{
+  margin-top: 1rem;
+  display: none;
+}
+.inner{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 0.3rem;
+  font-weight: bold;
+}

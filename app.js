@@ -1,4 +1,4 @@
-class course{
+class Course{
   constructor(course,units,grade){
     this.course = course;
     this.units = units;
@@ -6,38 +6,26 @@ class course{
   }
 }
 class UI{
-  // Adds items to local storage.
-  addToLocalStorage(courseName,units,grade){
-    const courseObj = {
-      courseName: courseName,
-      courseUnits: Number(units),
-      courseGrade: grade.toUpperCase()
-    };
-    let courseInfo = [];
-    if(localStorage.getItem('item') === null){
-      courseInfo = [];
-    }
-    else{
-      courseInfo = JSON.parse(localStorage.getItem('item'));
-    }
-    courseInfo.push(courseObj);
-    localStorage.setItem('item',JSON.stringify(courseInfo));
-  }
   // Gets items from local storage to tables in the UI.
-  addCourseToList(){
+  addCourseToList(course){
+    // const courseObj = {
+    //   courseName: courseName,
+    //   courseUnits: Number(units),
+    //   courseGrade: grade.toUpperCase()
+    // };
     const list = document.querySelector('.table-list');
-    const courseInfoLocal = JSON.parse(localStorage.getItem('item'));
+    // const courseInfoLocal = JSON.parse(localStorage.getItem('item'));
     const row = document.createElement('tr');
     row.className = 'row';
-    courseInfoLocal.forEach(element =>{
     // Creating the table row element.
-    row.innerHTML = `
-    <td>${element.courseName}</td>
-    <td><input class ="units userInput" type="text" disabled value = ${element.courseUnits}></td>
-    <td><input class ="grade userInput" type="text" disabled value = ${element.courseGrade}></td>
+    row.innerHTML += `
+    <td>${course.course}</td>
+    <td>${course.units}</td>
+    <td>${course.grade}</td>
     `
-    })
     list.appendChild(row);
+    
+
   }
   
   clearFields(){
@@ -105,22 +93,60 @@ class UI{
     let sumOfUnits = sum(unitsArr);
     let gpa = sumOfGradeUnits/sumOfUnits;
     console.log(gpa.toFixed(1));
+    document.getElementById('gpa').innerHTML = gpa.toFixed(1);
   }
   deleteFromLocalStorage(){
     // localStorage.clear();
   }
 }
+// LS class.
+class store{
+  // Get courses.
+  static getCourses(){
+    let courses = [];
+    if(localStorage.getItem('item') === null){
+      courses = [];
+    }
+    else{
+      courses = JSON.parse(localStorage.getItem('item'));
+    }
+    return courses;
+  }
+  // Display courses to UI.
+  static displayCourses(){
+    const courseInfo = store.getCourses();
+    courseInfo.forEach(course =>{
+      const ui = new UI();
+    ui.addCourseToList(course);
+    })
+  }
+  // Adds items to local storage.
+  static addToLocalStorage(course){
+    const courseInfo = store.getCourses();
+    courseInfo.push(course);
+    localStorage.setItem('item',JSON.stringify(courseInfo));
+  }
+  static clearLocalStorage(){
+    localStorage.clear();
+  }
+}
 
-
+// DOM LOAD event.
+document.addEventListener('DOMContentLoaded',store.displayCourses);
 const studentCourse = document.querySelector('.input-form');
 studentCourse.addEventListener('submit', function(e){
   const courseName = document.querySelector('.courseName').value;
   const units = document.querySelector('.units').value;
-  const grade = document.querySelector('.grade').value;
+  const grade = document.querySelector('.grade').value.toUpperCase();
+
   const ui = new UI();
+  const course = new Course(courseName,units,grade);
+
   if(courseName != '' && units != '' && grade != ''){
-  ui.addToLocalStorage(courseName,units,grade);
-  ui.addCourseToList();
+  // ui.addToLocalStorage(courseName,units,grade);
+  ui.addCourseToList(course);
+  // Add to local storage.
+  store.addToLocalStorage(course);
   ui.displayMessage(`course added!`,'success');
   ui.clearFields();
   }
@@ -134,17 +160,17 @@ studentCourse.addEventListener('submit', function(e){
 const calcGPA = document.querySelector('.calculateGPA');
 calcGPA.addEventListener('click',function(e){
   const ui = new UI();
-
-  const items = JSON.parse(localStorage.getItem('item'));
+  const items = store.getCourses();
   console.log(items);
   let mult = [];
   let unitsC = [];
   let letterGrade = "";
   let gradePoint = 0;
   let units = "";
+  console.log(items.course);
     items.forEach(element => {
-    letterGrade = element.courseGrade;
-    units = Number(element.courseUnits);
+    letterGrade = element.grade;
+    units = Number(element.units);
     gradePoint = ui.evaluteLetterGrade(letterGrade,units);
     mult.push(units*gradePoint)
     unitsC.push(units);
@@ -156,9 +182,21 @@ calcGPA.addEventListener('click',function(e){
   e.preventDefault();
 })
 function changeBackgroundColor(){
-  document.querySelector('body').style.backgroundColor = 'red';
+  document.querySelector('body').style.backgroundImage = "url('tenor.gif')";
+  document.querySelector('.loading').style.display = 'block';
   setTimeout(() => {
     document.querySelector('body').style.backgroundColor = '#333';
+    document.querySelector('.gpaBox').style.display = 'block'
+    document.querySelector('.clearTable').style.display = 'block'
+    document.querySelector('.loading').style.display = 'none';
+    document.querySelector('body').style.backgroundImage = '';
   }, 2000);
 }
-
+// clears courses from LS and UI.
+document.querySelector('.clearCourse').addEventListener('click',function(e){
+  setTimeout(() => {
+    store.clearLocalStorage();
+  window.location.reload();
+  }, 500);
+e.preventDefault();
+})
