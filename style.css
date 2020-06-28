@@ -154,3 +154,45 @@ h3{
   padding: 0.3rem;
   font-weight: bold;
 }
+.foot{
+  width: 80%;
+  margin: auto;
+  padding: 0.6rem;
+  background-color: #ccc;
+  color: #304050;
+  border: none;
+  border-radius: 0.7rem;
+  outline: none;
+}
+.social_media{
+  display: flex;
+  width: 80%;
+  margin: auto;
+  justify-content: space-between;
+
+}
+.footText{
+  background-color: #333;
+  width: 100%;
+  color: #f4f4f4;
+  padding: 0.6rem;
+  margin-bottom: 0;
+}
+.social_media a{
+  color: #532b23;
+  margin-bottom: 2rem;
+}
+.social_media a:hover{
+  opacity: 0.7;
+}
+.Smedia{
+  margin-top: 1rem;
+}
+@media(max-width:768px){
+  .social_media{
+    flex-direction: column;
+  }
+  .Smedia{
+    margin-bottom:0.4rem;
+  }
+}
