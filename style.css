@@ -195,4 +195,8 @@ h3{
   .Smedia{
     margin-bottom:0.4rem;
   }
+  .container{
+    width: 100%;
+    top: 0;
+  }
 }
