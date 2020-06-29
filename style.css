@@ -138,6 +138,10 @@ h3{
 .clearTable{
   display: none;
 }
+/* .calculateGPA{
+  display: none;
+  margin: 0.4rem auto;
+} */
 .loading{
   margin-top: 1rem;
   display: none;
@@ -163,6 +167,7 @@ h3{
   border: none;
   border-radius: 0.7rem;
   outline: none;
+  margin-top: 0.7rem;
 }
 .social_media{
   display: flex;

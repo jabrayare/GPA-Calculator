@@ -130,15 +130,14 @@ class store{
     localStorage.clear();
   }
 }
+const courseName = document.querySelector('.courseName').value;
+const units = document.querySelector('.units').value;
+const grade = document.querySelector('.grade').value.toUpperCase();
 
 // DOM LOAD event.
 document.addEventListener('DOMContentLoaded',store.displayCourses);
 const studentCourse = document.querySelector('.input-form');
 studentCourse.addEventListener('submit', function(e){
-  const courseName = document.querySelector('.courseName').value;
-  const units = document.querySelector('.units').value;
-  const grade = document.querySelector('.grade').value.toUpperCase();
-
   const ui = new UI();
   const course = new Course(courseName,units,grade);
 
@@ -177,8 +176,13 @@ calcGPA.addEventListener('click',function(e){
     });
   console.log(mult);
   console.log(unitsC);
+  if(courseName != '' && units != '' && grade != ''){
   ui.calculateGPA(mult,unitsC);
   window.reload = changeBackgroundColor();
+  }
+  else{
+    ui.displayMessage('Please fill all the fields!','error');
+  }
   e.preventDefault();
 })
 function changeBackgroundColor(){
