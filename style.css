@@ -1,13 +1,12 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body{
+body {
   background-color: #333;
-  
 }
-.container{
+.container {
   position: relative;
   top: 2rem;
   background-color: #f4f4f4;
@@ -16,8 +15,10 @@ body{
   text-align: center;
   position: relative;
   padding-bottom: 2rem;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2),
+    1px 2px 12px 12px rgba(0, 0, 0, 0.2);
 }
-.fields{
+.fields {
   display: flex;
   padding: 0.4rem;
   flex-direction: column;
@@ -25,23 +26,23 @@ body{
   align-items: center;
   text-align: left;
 }
-.head{
+.head {
   padding-top: 2rem;
   color: #333;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   /* letter-spacing: 0.1rem; */
-   text-align: center;
-   margin-bottom: 1.2rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
 }
-.input-group{
+.input-group {
   width: 80%;
   padding: 0.6rem;
   margin-top: 0.4rem;
   border: none;
   outline-color: #333;
-  border-radius:0.4rem;
+  border-radius: 0.4rem;
 }
-.btn{
+.btn {
   width: 80%;
   margin: auto;
   margin: 1rem;
@@ -52,19 +53,19 @@ body{
   border-radius: 0.7rem;
   outline: none;
 }
-.btn:hover{
+.btn:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.course-card{
+.course-card {
   width: 80%;
   margin: auto;
 }
-.course-card ul{
+.course-card ul {
   list-style: none;
   padding-bottom: 1rem;
 }
-.course-card ul li{
+.course-card ul li {
   background-color: #ccc;
 }
 table {
@@ -72,16 +73,17 @@ table {
   border-collapse: collapse;
 }
 
-table,th, td {
+table,
+th,
+td {
   border: 1px solid black;
   padding: 0.4rem;
-
 }
-.input-table{
+.input-table {
   width: 100%;
   height: 100%;
   outline: none;
-  border:none;
+  border: none;
   background-color: #ccc;
   padding: 0.2rem;
   color: #333;
@@ -89,67 +91,70 @@ table,th, td {
   font-weight: bold;
   font-size: 1rem;
 }
-.label{
+.label {
   padding-left: 1.3rem;
   text-align: left;
 }
-.error, .success{
+.error,
+.success {
   width: 100%;
   padding: 0.6rem;
 }
-.error{
-  color:#333;
+.error {
+  color: #333;
   background-color: red;
 }
-.success{
+.success {
   color: #333;
-  background-color:green;
+  background-color: green;
 }
-.grade{
+.grade {
   text-transform: uppercase;
 }
-.userInput{
+.userInput {
   width: 50%;
   margin: auto;
   text-align: center;
   border: none;
   color: #333;
 }
-.gpaBox{
+.gpaBox {
   width: 80%;
   margin: auto;
   background-color: #ccc;
-  border-radius: 20%;
+  border-radius: 5px;
   display: none;
 }
-.gpa{
+.gpa {
   display: flex;
   padding: 0.7rem 1rem;
   justify-content: center;
   align-items: center;
   justify-content: space-between;
 }
-h3{
-  font-family: 'Cormorant Garamond', serif;
+h3 {
+  font-family: "Cormorant Garamond", serif;
 }
 /* #gpa{
   margin-right: 2rem;
 } */
-.clearTable{
+.clearTable {
   display: none;
 }
 /* .calculateGPA{
   display: none;
   margin: 0.4rem auto;
 } */
-.loading{
+.loading {
   margin-top: 1rem;
   display: none;
 }
-.inner{
+.loading img {
+  height: 50px;
+}
+.inner {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
   background-color: #333;
   display: flex;
   justify-content: center;
@@ -157,8 +162,35 @@ h3{
   color: white;
   padding: 0.3rem;
   font-weight: bold;
+  border-radius: 50%;
 }
-.foot{
+.input-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.courseName {
+  width: 100%;
+  border-bottom: 1px solid #d8dee3;
+}
+.dropdown {
+  display: flex;
+}
+#units,
+#grades {
+  border-radius: 5px;
+  padding: 0 5px;
+  background-color: #304050;
+  color: #f4f4f4;
+}
+#units:focus,
+#grades:focus,
+.courseName:focus {
+  outline: none;
+}
+.foot {
   width: 80%;
   margin: auto;
   padding: 0.6rem;
@@ -169,38 +201,37 @@ h3{
   outline: none;
   margin-top: 0.7rem;
 }
-.social_media{
+.social_media {
   display: flex;
   width: 80%;
   margin: auto;
   justify-content: space-between;
-
 }
-.footText{
+.footText {
   background-color: #333;
   width: 100%;
   color: #f4f4f4;
   padding: 0.6rem;
   margin-bottom: 0;
 }
-.social_media a{
+.social_media a {
   color: #532b23;
   margin-bottom: 2rem;
 }
-.social_media a:hover{
+.social_media a:hover {
   opacity: 0.7;
 }
-.Smedia{
+.Smedia {
   margin-top: 1rem;
 }
-@media(max-width:768px){
-  .social_media{
+@media (max-width: 768px) {
+  .social_media {
     flex-direction: column;
   }
-  .Smedia{
-    margin-bottom:0.4rem;
+  .Smedia {
+    margin-bottom: 0.4rem;
   }
-  .container{
+  .container {
     width: 100%;
     top: 0;
   }
