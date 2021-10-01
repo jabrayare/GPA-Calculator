@@ -14,7 +14,7 @@ body {
   margin: auto;
   text-align: center;
   position: relative;
-  padding-bottom: 2rem;
+  /* padding-bottom: 2rem; */
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2),
     1px 2px 12px 12px rgba(0, 0, 0, 0.2);
 }
@@ -191,13 +191,13 @@ h3 {
   outline: none;
 }
 .foot {
-  width: 80%;
+  width: 100%;
   margin: auto;
   padding: 0.6rem;
   background-color: #ccc;
   color: #304050;
   border: none;
-  border-radius: 0.7rem;
+  /* border-radius: 20px; */
   outline: none;
   margin-top: 0.7rem;
 }
@@ -205,18 +205,19 @@ h3 {
   display: flex;
   width: 80%;
   margin: auto;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 .footText {
-  background-color: #333;
+  /* background-color: #333; */
   width: 100%;
-  color: #f4f4f4;
+  color: #304050;
   padding: 0.6rem;
   margin-bottom: 0;
 }
 .social_media a {
-  color: #532b23;
-  margin-bottom: 2rem;
+  color: #304050;
+  margin: 2rem 1rem;
 }
 .social_media a:hover {
   opacity: 0.7;
